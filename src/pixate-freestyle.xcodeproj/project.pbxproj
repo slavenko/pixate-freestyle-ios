@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7C36DB5E1C16F4F000B6B7B0 /* tester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C36DB5D1C16F4F000B6B7B0 /* tester.m */; };
+		7CB340251BCBC23B00B44783 /* PXFontRegistryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB340241BCBC23B00B44783 /* PXFontRegistryTests.m */; settings = {ASSET_TAGS = (); }; };
 		9C23049618DA27CE00969D18 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C84A63D18AE9CB600E7CDA7 /* Foundation.framework */; };
 		9C31780B18BE936B00F4B79D /* ImageBasedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3174FF18BE936A00F4B79D /* ImageBasedTests.m */; };
 		9C31780C18BE936B00F4B79D /* PXShapeRenderingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C31750018BE936A00F4B79D /* PXShapeRenderingTests.m */; };
@@ -773,6 +774,7 @@
 		0904B6EB8A59C81FBB135EF5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		572A0699C971287267DE7B50 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7C36DB5D1C16F4F000B6B7B0 /* tester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tester.m; sourceTree = "<group>"; };
+		7CB340241BCBC23B00B44783 /* PXFontRegistryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXFontRegistryTests.m; sourceTree = "<group>"; };
 		9C23049518DA27CE00969D18 /* MAFutureTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MAFutureTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C3174FE18BE936A00F4B79D /* ImageBasedTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageBasedTests.h; sourceTree = "<group>"; };
 		9C3174FF18BE936A00F4B79D /* ImageBasedTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageBasedTests.m; sourceTree = "<group>"; };
@@ -2459,6 +2461,7 @@
 				9C3177FB18BE936B00F4B79D /* PXAnimationStylerTests.m */,
 				9C3177FC18BE936B00F4B79D /* PXDeclarationTests.m */,
 				9C3177FD18BE936B00F4B79D /* PXFontInfoTests.m */,
+				7CB340241BCBC23B00B44783 /* PXFontRegistryTests.m */,
 				9C3177FE18BE936B00F4B79D /* PXLexemeTests.m */,
 				9C3177FF18BE936B00F4B79D /* PXMediaExpressionTest.m */,
 				9C31780018BE936B00F4B79D /* PXSpecificityTests.m */,
@@ -3391,6 +3394,7 @@
 				9C31780B18BE936B00F4B79D /* ImageBasedTests.m in Sources */,
 				9C317AF018BE936B00F4B79D /* PXFontInfoTests.m in Sources */,
 				9C317AF418BE936B00F4B79D /* PXStylerContextTests.m in Sources */,
+				7CB340251BCBC23B00B44783 /* PXFontRegistryTests.m in Sources */,
 				9C317AF718BE936B00F4B79D /* PXTransitionStylerTests.m in Sources */,
 				9C317AFC18BE936B00F4B79D /* W3CSelectorTests.m in Sources */,
 				9C31780C18BE936B00F4B79D /* PXShapeRenderingTests.m in Sources */,
