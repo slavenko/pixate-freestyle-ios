@@ -110,10 +110,10 @@ static NSString *DEFAULT_FONT = @"Helvetica";
 
 #pragma mark - Getters
 
-- (NSString *)fontName
-{
-    return [DEFAULT_FONT_NAME isEqualToString:_fontName] ? DEFAULT_FONT: _fontName;
-}
+//- (NSString *)fontName
+//{
+//    return [DEFAULT_FONT_NAME isEqualToString:_fontName] ? DEFAULT_FONT: _fontName;
+//}
 
 - (id<PXPaint>)getCombinedPaints
 {
@@ -268,11 +268,14 @@ static NSString *DEFAULT_FONT = @"Helvetica";
     // TODO: allow for a list of font families
     if (self.fontName)
     {
-        result = [PXFontRegistry fontWithFamily:self.fontName
-                                          fontStretch:self.fontStretch
-                                           fontWeight:self.fontWeight
-                                            fontStyle:self.fontStyle
-                                                 size:self.fontSize];
+        {
+            result = [PXFontRegistry fontWithFamily:self.fontName
+                                        fontStretch:self.fontStretch
+                                         fontWeight:self.fontWeight
+                                          fontStyle:self.fontStyle
+                                               size:self.fontSize
+                                      isDefaultFont:self.isDefaultFont];
+        }
 
         // TODO: we need to determine the system font name and then try looking up that family with all of the above
         // settings. Since that font family is known to exist (assuming we looked it up correctly), then we will get

@@ -29,6 +29,7 @@
 @implementation PXFontRegistry
 
 static NSMutableDictionary *REGISTRY;
+static NSCache *FONT_CACHE;
 static NSMutableSet *LOADED_FONTS;
 
 + (void)initialize
@@ -45,16 +46,24 @@ static NSMutableSet *LOADED_FONTS;
     [REGISTRY removeAllObjects];
 }
 
-+ (UIFont *)fontWithFamily:(NSString *)family
-               fontStretch:(NSString *)stretch
-                fontWeight:(NSString *)weight
-                 fontStyle:(NSString *)style
-                      size:(CGFloat)size
++ (UIFont*)fontWithFamily:(NSString*)family
+              fontStretch:(NSString*)stretch
+               fontWeight:(NSString*)weight
+                fontStyle:(NSString*)style
+                     size:(CGFloat)size
+            isDefaultFont:(BOOL)isDefaultFont
 {
     NSString *key = [self keyFromFamily:family stretch:stretch weight:weight style:style];
-    id match = [REGISTRY objectForKey:key];
 
-    if (!match)
+    UIFont *result = [self fontFromCacheWithKey:key];
+    if (result)
+    {
+        return result;
+    }
+
+    id resultingFontName = REGISTRY[key];
+
+    if (!resultingFontName)
     {
         NSArray *infos = [PXFontEntry fontEntriesForFamily:family];
         infos = [PXFontEntry filterEntries:infos byStretch:[PXFontEntry indexFromStretchName:stretch]];
@@ -64,27 +73,71 @@ static NSMutableSet *LOADED_FONTS;
         // save result so won't do the rather expensive lookup process again
         if (infos.count > 0)
         {
-            PXFontEntry *info = [infos objectAtIndex:0];
+            PXFontEntry *info = infos[0];
 
-            match = info.name;
-            [REGISTRY setObject:info.name forKey:key];
+            resultingFontName = info.name;
+        }
+        else if (isDefaultFont)
+        {
+//            UIKIT_EXTERN const CGFloat UIFontWeightUltraLight NS_AVAILABLE_IOS(8_2);
+//            UIKIT_EXTERN const CGFloat UIFontWeightThin NS_AVAILABLE_IOS(8_2);
+//            UIKIT_EXTERN const CGFloat UIFontWeightLight NS_AVAILABLE_IOS(8_2);
+//            UIKIT_EXTERN const CGFloat UIFontWeightRegular NS_AVAILABLE_IOS(8_2);
+//            UIKIT_EXTERN const CGFloat UIFontWeightMedium NS_AVAILABLE_IOS(8_2);
+//            UIKIT_EXTERN const CGFloat UIFontWeightSemibold NS_AVAILABLE_IOS(8_2);
+//            UIKIT_EXTERN const CGFloat UIFontWeightBold NS_AVAILABLE_IOS(8_2);
+//            UIKIT_EXTERN const CGFloat UIFontWeightHeavy NS_AVAILABLE_IOS(8_2);
+//            UIKIT_EXTERN const CGFloat UIFontWeightBlack NS_AVAILABLE_IOS(8_2);
+
+            if (![@"italic" isEqualToString:style] ||
+                [@"oblique" isEqualToString:style])
+            {
+                result = [UIFont italicSystemFontOfSize:size];
+
+                id fd = [result.fontDescriptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitItalic ];
+                result = [UIFont fontWithDescriptor:fd
+                                               size:size];
+            }
+            else
+            {
+                result = [UIFont systemFontOfSize:size];
+            }
         }
         else
         {
             // store an NSNull as a surrogate for nil
-            [REGISTRY setObject:[NSNull null] forKey:key];
+            resultingFontName = [NSNull null];
         }
+
+        REGISTRY[key] = resultingFontName;
     }
-    else if (match == [NSNull null])
+
+    if (resultingFontName &&
+        resultingFontName != [NSNull null])
     {
-        // We already tried to look this one up and we got nothing, so update match to nil to indicate that
-        match = nil;
+        static int count = 0;
+        NSLog(@"fontWithName: %i, key: %@, res: %@, %f", ++count, key, resultingFontName, size);
+
+        result = [UIFont fontWithName:resultingFontName size:size];
     }
 
-    // cast
-    NSString *result = match;
+    if (result)
+    {
+        [self storeFont:result
+                withKey:key];
+    }
+    return result;
+}
 
-    return (result) ? [UIFont fontWithName:result size:size] : nil;
++ (UIFont *)fontFromCacheWithKey:(NSString*)key
+{
+    return [FONT_CACHE objectForKey:key];
+}
+
++ (void)storeFont:(UIFont *)font
+          withKey:(NSString*)key
+{
+    [FONT_CACHE setObject:font forKey:key];
 }
 
 + (NSString *)keyFromFamily:(NSString *)family stretch:(NSString *)stretch weight:(NSString *)weight style:(NSString *)style
@@ -94,7 +147,7 @@ static NSMutableSet *LOADED_FONTS;
 
 + (void)loadFontFromURL:(NSURL *)URL
 {
-    if (URL != nil && [LOADED_FONTS containsObject:URL] == NO)
+    if (URL != nil && ![LOADED_FONTS containsObject:URL])
     {
         [LOADED_FONTS addObject:URL];
 

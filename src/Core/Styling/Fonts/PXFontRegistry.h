@@ -51,7 +51,8 @@
                fontStretch:(NSString *)stretch
                 fontWeight:(NSString *)weight
                  fontStyle:(NSString *)style
-                      size:(CGFloat)size;
+                      size:(CGFloat)size
+             isDefaultFont:(BOOL)isDefaultFont;
 
 
 + (void)loadFontFromURL:(NSURL *)URL;
