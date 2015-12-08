@@ -1,0 +1,28 @@
+PODS:
+  - CocoaLumberjack (2.2.0):
+    - CocoaLumberjack/Default (= 2.2.0)
+    - CocoaLumberjack/Extensions (= 2.2.0)
+  - CocoaLumberjack/Core (2.2.0)
+  - CocoaLumberjack/Default (2.2.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.2.0):
+    - CocoaLumberjack/Default
+  - PixateFreestyle (2.1.6):
+    - PixateFreestyle/All (= 2.1.6)
+  - PixateFreestyle/All (2.1.6):
+    - CocoaLumberjack (~> 2.2.0)
+    - PixateFreestyle/MAFuture
+  - PixateFreestyle/MAFuture (2.1.6)
+
+DEPENDENCIES:
+  - PixateFreestyle (from `../`)
+
+EXTERNAL SOURCES:
+  PixateFreestyle:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
+  PixateFreestyle: d93916735b49cf145af9032661ca71ba9f9dff7a
+
+COCOAPODS: 0.39.0
