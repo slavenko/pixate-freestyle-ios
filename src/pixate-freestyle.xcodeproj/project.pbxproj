@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A145EF48ACEA331729636D4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0904B6EB8A59C81FBB135EF5 /* libPods.a */; };
 		7C36DB5E1C16F4F000B6B7B0 /* tester.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C36DB5D1C16F4F000B6B7B0 /* tester.m */; };
-		7CB340251BCBC23B00B44783 /* PXFontRegistryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB340241BCBC23B00B44783 /* PXFontRegistryTests.m */; settings = {ASSET_TAGS = (); }; };
+		7CB340251BCBC23B00B44783 /* PXFontRegistryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB340241BCBC23B00B44783 /* PXFontRegistryTests.m */; };
 		9C23049618DA27CE00969D18 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C84A63D18AE9CB600E7CDA7 /* Foundation.framework */; };
 		9C31780B18BE936B00F4B79D /* ImageBasedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3174FF18BE936A00F4B79D /* ImageBasedTests.m */; };
 		9C31780C18BE936B00F4B79D /* PXShapeRenderingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C31750018BE936A00F4B79D /* PXShapeRenderingTests.m */; };
@@ -1563,6 +1564,7 @@
 				9C84A64C18AE9CB600E7CDA7 /* XCTest.framework in Frameworks */,
 				9C84A64F18AE9CB600E7CDA7 /* UIKit.framework in Frameworks */,
 				9C84A64D18AE9CB600E7CDA7 /* Foundation.framework in Frameworks */,
+				4A145EF48ACEA331729636D4 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2581,9 +2583,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C84A66018AE9CB600E7CDA7 /* Build configuration list for PBXNativeTarget "pixate-freestyleTests" */;
 			buildPhases = (
+				49CF043A06B80F63079C0B5D /* Check Pods Manifest.lock */,
 				9C84A64618AE9CB600E7CDA7 /* Sources */,
 				9C84A64718AE9CB600E7CDA7 /* Frameworks */,
 				9C84A64818AE9CB600E7CDA7 /* Resources */,
+				A094954ED3F12EEA43DCD262 /* Embed Pods Frameworks */,
+				392599D6A05FD31EE8EDD73C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3361,6 +3366,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		392599D6A05FD31EE8EDD73C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49CF043A06B80F63079C0B5D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A094954ED3F12EEA43DCD262 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9C23049118DA27CE00969D18 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -3518,6 +3571,7 @@
 		};
 		9C84A66118AE9CB600E7CDA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 572A0699C971287267DE7B50 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3546,6 +3600,7 @@
 		};
 		9C84A66218AE9CB600E7CDA7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D10EF88FDAF4B1D9BAA73DA0 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
