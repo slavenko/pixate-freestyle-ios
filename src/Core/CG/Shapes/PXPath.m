@@ -29,16 +29,16 @@
 #import "PXMath.h"
 #import "PXVector.h"
 
-@implementation PXPath
+@implementation NFI_PXPath
 {
     CGMutablePathRef pathPath;
 }
 
 #pragma mark - Static Methods
 
-+ (PXPath *)createPathFromPathData:(NSString *)data
++ (NFI_PXPath *)createPathFromPathData:(NSString *)data
 {
-    PXPath *path = [[PXPath alloc] init];
+    NFI_PXPath *path = [[NFI_PXPath alloc] init];
 
     NSScanner *scanner = [NSScanner scannerWithString:data];
     NSCharacterSet *skipSet = [NSCharacterSet characterSetWithCharactersInString:@" \r\n,"];

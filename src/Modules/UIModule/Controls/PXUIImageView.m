@@ -44,11 +44,11 @@
 
 static NSDictionary *PSEUDOCLASS_MAP;
 
-@implementation PXUIImageView
+@implementation NFI_PXUIImageView
 
 + (void)initialize
 {
-    if (self != PXUIImageView.class)
+    if (self != NFI_PXUIImageView.class)
         return;
     
     [UIView registerDynamicSubclass:self withElementName:@"image-view"];

@@ -63,11 +63,11 @@ NSString *const kDefaultCacheLabelText = @"label.text";
 NSString *const kDefaultCacheLabelTextAlignment = @"label.textAlignment";
 NSString *const kDefaultCacheLabelLineBreakMode = @"label.lineBreakMode";
 
-@implementation PXUILabel
+@implementation NFI_PXUILabel
 
 + (void)initialize
 {
-    if (self != PXUILabel.class)
+    if (self != NFI_PXUILabel.class)
         return;
     
     [UIView registerDynamicSubclass:self withElementName:@"label"];
@@ -84,7 +84,7 @@ NSString *const kDefaultCacheLabelLineBreakMode = @"label.lineBreakMode";
 {
     if (!objc_getAssociatedObject(self, &STYLE_CHILDREN))
     {
-        __weak PXUILabel *weakSelf = self;
+        __weak NFI_PXUILabel *weakSelf = self;
         
         // attributed text
         PXVirtualStyleableControl *attributedText =
@@ -182,18 +182,18 @@ NSString *const kDefaultCacheLabelLineBreakMode = @"label.lineBreakMode";
 
             PXBoxShadowStyler.sharedInstance,
 
-            [[PXTextShadowStyler alloc] initWithCompletionBlock:^(PXUILabel *view, PXTextShadowStyler *styler, PXStylerContext *context) {
+            [[PXTextShadowStyler alloc] initWithCompletionBlock:^(NFI_PXUILabel *view, PXTextShadowStyler *styler, PXStylerContext *context) {
                 PXShadow *shadow = context.textShadow;
 
                 [view px_setShadowColor: shadow.color];
                 [view px_setShadowOffset: CGSizeMake(shadow.horizontalOffset, shadow.verticalOffset)];
             }],
             
-            [[PXFontStyler alloc] initWithCompletionBlock:^(PXUILabel *view, PXFontStyler *styler, PXStylerContext *context) {
+            [[PXFontStyler alloc] initWithCompletionBlock:^(NFI_PXUILabel *view, PXFontStyler *styler, PXStylerContext *context) {
                 [view px_setFont:context.font];
             }],
             
-            [[PXPaintStyler alloc] initWithCompletionBlock:^(PXUILabel *view, PXPaintStyler *styler, PXStylerContext *context) {
+            [[PXPaintStyler alloc] initWithCompletionBlock:^(NFI_PXUILabel *view, PXPaintStyler *styler, PXStylerContext *context) {
                 UIColor *color = (UIColor *)[context propertyValueForName:@"color"];
                 
                 if(color)
@@ -209,23 +209,23 @@ NSString *const kDefaultCacheLabelLineBreakMode = @"label.lineBreakMode";
                 }
             }],
             
-            [[PXTextContentStyler alloc] initWithCompletionBlock:^(PXUILabel *view, PXTextContentStyler *styler, PXStylerContext *context) {
+            [[PXTextContentStyler alloc] initWithCompletionBlock:^(NFI_PXUILabel *view, PXTextContentStyler *styler, PXStylerContext *context) {
                 [view px_setText:context.text];
             }],
                 
             [[PXGenericStyler alloc] initWithHandlers: @{
                  @"text-transform" : ^(PXDeclaration *declaration, PXStylerContext *context) {
-                    PXUILabel *view = (PXUILabel *)context.styleable;
+                    NFI_PXUILabel *view = (NFI_PXUILabel *)context.styleable;
                     
                     [view px_setText:[declaration transformString:view.text]];
                 },
                  @"text-align" : ^(PXDeclaration *declaration, PXStylerContext *context) {
-                    PXUILabel *view = (PXUILabel *)context.styleable;
+                    NFI_PXUILabel *view = (NFI_PXUILabel *)context.styleable;
 
                     [view px_setTextAlignment:declaration.textAlignmentValue];
                 },
                  @"text-overflow" : ^(PXDeclaration *declaration, PXStylerContext *context) {
-                    PXUILabel *view = (PXUILabel *)context.styleable;
+                    NFI_PXUILabel *view = (NFI_PXUILabel *)context.styleable;
 
                     [view px_setLineBreakMode:declaration.lineBreakModeValue];
                 }

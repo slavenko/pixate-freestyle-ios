@@ -49,6 +49,6 @@
  *  - -ios-rendering-mode: original | template | automatic  // iOS 7 or later
  *
  */
-@interface PXUIImageView : UIImageView
+@interface NFI_PXUIImageView : UIImageView
 
 @end

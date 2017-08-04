@@ -26,7 +26,7 @@
 #import "PXShapeGroup.h"
 #import "PXSVGLoader.h"
 
-@implementation PXShapeView
+@implementation NFI_PXShapeView
 
 #pragma mark - Setters
 

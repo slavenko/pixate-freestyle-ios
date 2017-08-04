@@ -65,13 +65,13 @@
 static NSDictionary *PSEUDOCLASS_MAP;
 static const char STYLE_CHILDREN;
 
-@implementation PXUIButton
+@implementation NFI_PXUIButton
 
 #pragma mark - Static methods
 
 + (void)initialize
 {
-    if (self != PXUIButton.class)
+    if (self != NFI_PXUIButton.class)
         return;
     
     [UIView registerDynamicSubclass:self withElementName:@"button"];
@@ -88,7 +88,7 @@ static const char STYLE_CHILDREN;
 {
     if (!objc_getAssociatedObject(self, &STYLE_CHILDREN))
     {
-        __weak PXUIButton *weakSelf = self;
+        __weak NFI_PXUIButton *weakSelf = self;
 
         //
         // icon child
@@ -189,7 +189,7 @@ static const char STYLE_CHILDREN;
             PXBorderStyler.sharedInstance,
             PXBoxShadowStyler.sharedInstance,
 
-            [[PXTextShadowStyler alloc] initWithCompletionBlock:^(PXUIButton *view, PXTextShadowStyler *styler, PXStylerContext *context) {
+            [[PXTextShadowStyler alloc] initWithCompletionBlock:^(NFI_PXUIButton *view, PXTextShadowStyler *styler, PXStylerContext *context) {
                 PXShadow *shadow = context.textShadow;
 
                 if (shadow)
@@ -215,11 +215,11 @@ static const char STYLE_CHILDREN;
                 }
             }],
 
-            [[PXFontStyler alloc] initWithCompletionBlock:^(PXUIButton *view, PXFontStyler *styler, PXStylerContext *context) {
+            [[PXFontStyler alloc] initWithCompletionBlock:^(NFI_PXUIButton *view, PXFontStyler *styler, PXStylerContext *context) {
                 view.px_titleLabel.font = context.font;
             }],
 
-            [[PXPaintStyler alloc] initWithCompletionBlock:^(PXUIButton *view, PXPaintStyler *styler, PXStylerContext *context) {
+            [[PXPaintStyler alloc] initWithCompletionBlock:^(NFI_PXUIButton *view, PXPaintStyler *styler, PXStylerContext *context) {
                 UIColor *color = (UIColor *)[context propertyValueForName:@"color"];
                 if(color)
                 {
@@ -233,29 +233,29 @@ static const char STYLE_CHILDREN;
                 }
             }],
 
-            [[PXInsetStyler alloc] initWithBaseName:@"content-edge" completionBlock:^(PXUIButton *view, PXInsetStyler *styler, PXStylerContext *context) {
+            [[PXInsetStyler alloc] initWithBaseName:@"content-edge" completionBlock:^(NFI_PXUIButton *view, PXInsetStyler *styler, PXStylerContext *context) {
                 [view px_setContentEdgeInsets:styler.insets];
             }],
-            [[PXInsetStyler alloc] initWithBaseName:@"title-edge" completionBlock:^(PXUIButton *view, PXInsetStyler *styler, PXStylerContext *context) {
+            [[PXInsetStyler alloc] initWithBaseName:@"title-edge" completionBlock:^(NFI_PXUIButton *view, PXInsetStyler *styler, PXStylerContext *context) {
                 [view px_setTitleEdgeInsets:styler.insets];
             }],
-            [[PXInsetStyler alloc] initWithBaseName:@"image-edge" completionBlock:^(PXUIButton *view, PXInsetStyler *styler, PXStylerContext *context) {
+            [[PXInsetStyler alloc] initWithBaseName:@"image-edge" completionBlock:^(NFI_PXUIButton *view, PXInsetStyler *styler, PXStylerContext *context) {
                 [view px_setImageEdgeInsets:styler.insets];
             }],
 
-            [[PXTextContentStyler alloc] initWithCompletionBlock:^(PXUIButton *view, PXTextContentStyler *styler, PXStylerContext *context) {
+            [[PXTextContentStyler alloc] initWithCompletionBlock:^(NFI_PXUIButton *view, PXTextContentStyler *styler, PXStylerContext *context) {
                 [view px_setTitle:context.text forState:[context stateFromStateNameMap:PSEUDOCLASS_MAP]];
             }],
 
             [[PXGenericStyler alloc] initWithHandlers: @{
              @"text-transform" : ^(PXDeclaration *declaration, PXStylerContext *context) {
-                PXUIButton *view = (PXUIButton *)context.styleable;
+                NFI_PXUIButton *view = (NFI_PXUIButton *)context.styleable;
                 NSString *newTitle = [declaration transformString:[view titleForState:UIControlStateNormal]];
 
                 [view px_setTitle:newTitle forState:UIControlStateNormal];
             },
              @"text-overflow" : ^(PXDeclaration *declaration, PXStylerContext *context) {
-                PXUIButton *view = (PXUIButton *)context.styleable;
+                NFI_PXUIButton *view = (NFI_PXUIButton *)context.styleable;
 
                 view.px_titleLabel.lineBreakMode = declaration.lineBreakModeValue;
             }

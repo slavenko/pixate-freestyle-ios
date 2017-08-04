@@ -167,7 +167,7 @@
 
 - (void)testEllipticalArc
 {
-    PXPath *path = [[PXPath alloc] init];
+    NFI_PXPath *path = [[NFI_PXPath alloc] init];
 
     [path moveToX:10.0f y:40.0f];
     [path lineToX:90.0f y:40.0f];
@@ -328,7 +328,7 @@
 
 - (void)testLineJoinBevel
 {
-    PXPath *shape = [[PXPath alloc] init];
+    NFI_PXPath *shape = [[NFI_PXPath alloc] init];
     PXStroke *stroke = [[PXStroke alloc] init];
 
     [shape moveToX:20.0f y:60.0f];
@@ -345,7 +345,7 @@
 
 - (void)testLineJoinRound
 {
-    PXPath *shape = [[PXPath alloc] init];
+    NFI_PXPath *shape = [[NFI_PXPath alloc] init];
     PXStroke *stroke = [[PXStroke alloc] init];
 
     [shape moveToX:20.0f y:60.0f];
@@ -362,7 +362,7 @@
 
 - (void)testLineJoinMiter
 {
-    PXPath *shape = [[PXPath alloc] init];
+    NFI_PXPath *shape = [[NFI_PXPath alloc] init];
     PXStroke *stroke = [[PXStroke alloc] init];
 
     [shape moveToX:20.0f y:60.0f];
@@ -379,7 +379,7 @@
 
 - (void)testMiterLimit
 {
-    PXPath *shape = [[PXPath alloc] init];
+    NFI_PXPath *shape = [[NFI_PXPath alloc] init];
     PXStroke *stroke = [[PXStroke alloc] init];
 
     [shape moveToX:20.0f y:60.0f];

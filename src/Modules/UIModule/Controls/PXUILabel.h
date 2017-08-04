@@ -70,6 +70,6 @@ extern NSString *const kDefaultCacheLabelText;
  *  - PXAttributedTextStyler 
  *
  */
-@interface PXUILabel : UILabel
+@interface NFI_PXUILabel : UILabel
 
 @end

@@ -62,7 +62,7 @@
     NSString *path = [[NSBundle bundleWithIdentifier:@"com.pixate.pixate-freestyleTests"] pathForResource:name ofType:@"svg"];
 
     // create view
-    PXShapeView *shapeView = [[PXShapeView alloc] init];
+    NFI_PXShapeView *shapeView = [[NFI_PXShapeView alloc] init];
 
     // load SVG image
     [shapeView loadSceneFromURL:[NSURL fileURLWithPath:path]];

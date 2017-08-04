@@ -69,7 +69,7 @@
         // create image
         if ([self hasSVGImageURL])
         {
-            PXShapeView *shapeView = [[PXShapeView alloc] initWithFrame:bounds];
+            NFI_PXShapeView *shapeView = [[NFI_PXShapeView alloc] initWithFrame:bounds];
 
             [shapeView loadSceneFromURL:_imageURL];
             image = [shapeView renderToImage];

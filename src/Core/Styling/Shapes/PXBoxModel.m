@@ -32,10 +32,10 @@
     PXBorderInfo *borderRight_;
     PXBorderInfo *borderBottom_;
     PXBorderInfo *borderLeft_;
-    PXPath *borderPathTop_;
-    PXPath *borderPathRight_;
-    PXPath *borderPathBottom_;
-    PXPath *borderPathLeft_;
+    NFI_PXPath *borderPathTop_;
+    NFI_PXPath *borderPathRight_;
+    NFI_PXPath *borderPathBottom_;
+    NFI_PXPath *borderPathLeft_;
 }
 
 @synthesize bounds = _bounds;
@@ -386,7 +386,7 @@
     // top
     if (borderTop_.hasContent)
     {
-        borderPathTop_ = [[PXPath alloc] init];
+        borderPathTop_ = [[NFI_PXPath alloc] init];
 
         switch (borderTop_.style)
         {
@@ -450,7 +450,7 @@
     // right
     if (borderRight_.hasContent)
     {
-        borderPathRight_ = [[PXPath alloc] init];
+        borderPathRight_ = [[NFI_PXPath alloc] init];
 
         switch (borderRight_.style)
         {
@@ -511,7 +511,7 @@
     // bottom
     if (borderBottom_.hasContent)
     {
-        borderPathBottom_ = [[PXPath alloc] init];
+        borderPathBottom_ = [[NFI_PXPath alloc] init];
 
         switch (borderBottom_.style)
         {
@@ -572,7 +572,7 @@
     // left
     if (borderLeft_.hasContent)
     {
-        borderPathLeft_ = [[PXPath alloc] init];
+        borderPathLeft_ = [[NFI_PXPath alloc] init];
 
         switch (borderLeft_.style)
         {

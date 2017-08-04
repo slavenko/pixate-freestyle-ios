@@ -72,10 +72,10 @@
     [PXMPVolumeView class];
     [PXUIActionSheet class];
     [PXUIActivityIndicatorView class];
-    [PXUIButton class];
+    [NFI_PXUIButton class];
     [PXUIDatePicker class];
-    [PXUIImageView class];
-    [PXUILabel class];
+    [NFI_PXUIImageView class];
+    [NFI_PXUILabel class];
     [PXUIPageControl class];
     [PXUIPickerView class];
     [PXUIProgressView class];

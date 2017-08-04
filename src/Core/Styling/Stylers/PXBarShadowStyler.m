@@ -77,7 +77,7 @@
                 size = bounds.size;
             }
 
-            PXShapeView *shapeView = [[PXShapeView alloc] initWithFrame:bounds];
+            NFI_PXShapeView *shapeView = [[NFI_PXShapeView alloc] initWithFrame:bounds];
 
             [shapeView loadSceneFromURL:context.shadowUrl];
             context.shadowImage = [shapeView renderToImage];

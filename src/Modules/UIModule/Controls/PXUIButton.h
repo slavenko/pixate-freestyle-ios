@@ -86,6 +86,6 @@
  *  - PXAttributedTextStyler
  *
  */
-@interface PXUIButton : UIButton
+@interface NFI_PXUIButton : UIButton
 
 @end
