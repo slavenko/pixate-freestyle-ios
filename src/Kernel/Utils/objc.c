@@ -26,12 +26,19 @@
 
 #define __bridge
 
+// Fuck if I know what the hell all this means
+// A typedef for objc_msgSendSuper which takes only the required (first two) arguments
+typedef void *(*NoAdditionalArgMsgSendSuper)(struct objc_super *super_class, SEL selector);
+
 void* callSuper0(id self, Class superClass, SEL _cmd)
 {
-	struct objc_super super;
-	super.receiver = (__bridge void *)self;
-	super.class = superClass != NULL ? superClass : class_getSuperclass(object_getClass(self));
-	return objc_msgSendSuper(&super, _cmd);
+   struct objc_super super;
+   // .receiver is now defined as "__unsafe_unretained _Nonnull id" so no bridge cast required
+   super.receiver = self;
+   // .super_class is new name for .class
+   super.class = superClass != NULL ? superClass : class_getSuperclass(object_getClass(self));
+   // cast objc_msgSendSuper to the correct type and then call
+   return ((NoAdditionalArgMsgSendSuper)objc_msgSendSuper)(&super, _cmd);
 }
 
 void* callSuper1(id self, Class superClass, SEL _cmd, id arg1)
