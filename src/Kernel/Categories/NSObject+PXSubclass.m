@@ -131,6 +131,7 @@ void PXForceLoadNSObjectPXSubclass() {}
 static BOOL classRespondsToSelectorRAW(Class class, SEL selector)
 {
 	if (@available(iOS 8.0, *)) {
+		NSString *className = NSStringFromClass([class class]);
 		if(
 		   [className containsString:@"pxuiview_uiwebbrowserview"] ||
 		   [className containsString:@"pxuiview_uikeyboardautomatic"] ||
