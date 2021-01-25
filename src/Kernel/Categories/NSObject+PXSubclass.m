@@ -130,6 +130,19 @@ void PXForceLoadNSObjectPXSubclass() {}
 
 static BOOL classRespondsToSelectorRAW(Class class, SEL selector)
 {
+	if (@available(iOS 8.0, *)) {
+		if(
+		   [className containsString:@"pxuiview_uiwebbrowserview"] ||
+		   [className containsString:@"pxuiview_uikeyboardautomatic"] ||
+		   [className containsString:@"pxuitoolbar_uitoolbar"] ||
+		   [className containsString:@"nfi_pxuibutton__uimodernbarbutton"] ||
+		   [className containsString:@"pxuiview__uibuttonbarbutton"] ||
+		   [className containsString:@"pxuiview__uibuttonbarstackview"]
+		   ) {
+			return NO;
+		}
+	}
+
     if (class != Nil)
     {
         return class_getInstanceMethod(class, selector) != NULL;
