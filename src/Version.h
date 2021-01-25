@@ -26,7 +26,7 @@
 #ifndef Pixate_Version_h
 #define Pixate_Version_h
 
-#define PIXATE_FREESTYLE_VERSION "2.3.1"
+#define PIXATE_FREESTYLE_VERSION "2.4.0"
 
 #define PIXATE_FREESTYLE_API_VERSION 2
 
