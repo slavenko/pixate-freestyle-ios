@@ -67,6 +67,9 @@ static NSDictionary *BUTTONS_PSEUDOCLASS_MAP;
 
 - (NSArray *)pxStyleChildren
 {
+	//life is too short to waste it on stupid shit like this
+	return @[];
+
     // Get the children array
     NSArray *children = objc_getAssociatedObject(self, &STYLE_CHILDREN);
     
