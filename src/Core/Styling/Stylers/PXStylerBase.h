@@ -33,7 +33,7 @@
  *  @param styler The styler to use when styling the view
  *  @param context Any additional context associated with this styling cycle
  */
-typedef void(^PXStylerCompletionBlock)(id<PXStyleable> view, id<PXStyler> styler, PXStylerContext *context);
+typedef void(^PXStylerCompletionBlock)(__kindof id<PXStyleable> view, id<PXStyler> styler, PXStylerContext *context);
 
 /**
  *  A typedef for the block that will be called for a given property.
